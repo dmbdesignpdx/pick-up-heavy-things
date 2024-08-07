@@ -1,0 +1,252 @@
+:root {
+    --color-blue: #00f;
+    --color-green: #0f0;
+    --color-red: #f00;
+    --color-yellow: #ff0;
+    --color-cyan: #0ff;
+    --color-magenta: #f0f;
+    --color-background: #ccc;
+		--color-background-2: #111;
+    --color-surface: #fff;
+    --color-on-surface: #222;
+		--color-on-background-2: #fff;
+
+    --font-body: 'Your Family';
+    --font-heading: sans-serif;
+    --font-quote: serif;
+    --font-code: monospace;
+
+    --font-level-1: 7rem;
+    --font-level-2: 1rem;
+    --font-level-3: 1.2rem;
+    --font-level-4: 2rem;
+    --font-level-5: 1.75rem;
+    --font-level-6: 1.5rem;
+    --font-level-body: 1.125rem;
+
+    --font-weight-thin: 200;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+
+    --line-height-heading: 1.2;
+    --line-height-body: 1.5;
+    --line-height-quote: 1.5;
+    --line-height-ui: 1;
+
+    --letter-spacing-heading: 0.01ch;
+    --letter-spacing-body: 0.02ch;
+
+    --space-1: 1rem;
+    --space-2: 2rem;
+    --space-3: 3rem;
+    --space-4: 6rem;
+    --space-5: 9rem;
+    --space-6: 15rem;
+    --space-7: 24rem;
+    --space-8: 39rem;
+    --space-9: 63rem;
+
+    --flow-space: 1.2em;
+
+    --elevation-1: 0 0.5rem 1rem rgba(0, 0, 20, 0.15);
+    --elevation-2: 0 1rem 2rem rgba(0, 0, 20, 0.18);
+    --elevation-3: 0 2rem 4rem rgba(0, 0, 20, 0.21);
+
+    --gap: 1rem;
+}
+
+input,
+select,
+progress,
+meter {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+li {
+    list-style: none;
+}
+
+li::before {
+    content: "\200B";
+}
+
+a,
+abbr {
+    text-decoration: none;
+}
+
+dfn,
+address {
+    font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+html {
+    font-size: 100%;
+}
+
+body {
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    touch-action: manipulation;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: transparent;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    font-family: var(--font-body), sans-serif;
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-level-body);
+    letter-spacing: var(--letter-spacing-body);
+    line-height: var(--line-height-body);
+    color: var(--color-on-surface);
+    background-color: var(--color-background);
+    overflow-wrap: break-word;
+}
+
+input,
+select,
+button,
+textarea {
+    font: inherit;
+}
+
+video,
+img,
+object,
+svg,
+iframe,
+embed {
+    display: block;
+}
+
+a {
+    font-weight: var(--font-weight-bold);
+    color: inherit;
+    white-space: nowrap;
+}
+
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+button,
+a {
+    line-height: var(--line-height-ui);
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+select,
+button,
+[role=button] {
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: var(--line-height-heading);
+    text-rendering: geometricPrecision;
+    text-wrap: balance;
+}
+
+p {
+    -webkit-hyphens: none;
+    hyphens: none;
+}
+
+:focus {
+  outline: 0;
+}
+
+::-moz-focus-inner {
+  border: 0;
+}
+
+:target {
+    scroll-margin-block-start: 5ex;
+}
+
+[data-sr] {
+	width: 1px;
+	height: 1px;
+	position: absolute;
+	overflow: hidden;
+}
+
+
+[data-flow] > * + * {
+    margin-block-start: var(--flow-space, 1em);
+}
+
+[data-wrap],
+[data-grid] {
+    inline-size: 100%;
+    padding-inline: var(--gap);
+    margin-inline: auto;
+}
+
+[data-grid] {
+    display: grid;
+    grid: auto / repeat(6, 1fr);
+    column-gap: var(--gap);
+}
+
+/* Small Screen */
+@media (min-width:48rem) {
+
+    :root {
+        --gap: 2rem;
+    }
+
+}
+
+/* Medium Screen */
+@media (min-width:80rem) {
+
+    [data-wrap],
+    [data-grid] {
+        inline-size: 84vw;
+        max-inline-size: 90rem;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+}
+
+/* Large Screen */
+@media (min-width:120rem) {}
+
+
+
+/* Reduced motion */
+@media (prefers-reduced-motion:reduce) {}
+
+/* Theme */
+@media (prefers-color-scheme:dark) {
+    html {
+        color-scheme: dark;
+    }
+
+    body {
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+    }
+}

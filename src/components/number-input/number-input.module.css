@@ -1,0 +1,14 @@
+.root {
+	contain: layout;
+	display: inline-flex;
+	flex-flow: column wrap;
+	inline-size: 100%;
+}
+
+.input {
+	padding-block: 1ex;
+	padding-inline: 1ch;
+	background-color: var(--color-surface);
+	color: var(--color-on-surface);
+	border: 1px solid var(--color-on-surface);
+}

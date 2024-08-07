@@ -1,0 +1,13 @@
+.root {
+	contain: content;
+	background-color: var(--color-background-2);
+	padding-block: var(--space-2);
+	padding-inline: var(--gap);
+	color: var(--color-on-background-2);
+	margin-block-start: var(--space-2);
+}
+
+.root address {
+	display: flex;
+	flex-flow: column wrap;
+}

@@ -1,0 +1,5 @@
+.root {
+  contain: content;
+	display: block;
+	padding-inline: var(--gap);
+}
