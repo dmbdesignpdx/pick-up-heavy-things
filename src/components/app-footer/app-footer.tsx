@@ -1,6 +1,8 @@
 import type { AppFooterProps as Props } from './types';
 
 import { cls } from '#utils:cls';
+import { Link } from '#constants:links';
+import { FooterAddress } from '#components:footer-address';
 import style from './app-footer.module.css';
 
 
@@ -9,12 +11,8 @@ export function AppFooter({ className }: Props) {
 
 	return (
 		<footer className={_className}>
-			<address>
-				Daniel Blake
-				<a href="#">Email</a>
-				<a href="#">LinkedIn</a>
-			</address>
-			<p>Check out <a href="#">Prism Moves</a></p>
+			<FooterAddress />
+			<p>Check out <a href={Link.Prism.URL}>{Link.Prism.LABEL}</a>. Do it.</p>
 		</footer>
 	);
 }

@@ -3,3 +3,8 @@
 	display: block;
 	padding-inline: var(--gap);
 }
+
+.tester {
+	display: flex;
+	gap: var(--gap);
+}

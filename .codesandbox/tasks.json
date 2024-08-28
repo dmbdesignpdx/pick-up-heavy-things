@@ -23,26 +23,6 @@
       "name": "serve",
       "command": "pnpm serve",
       "runAtStart": false
-    },
-    "lint": {
-      "name": "lint",
-      "command": "pnpm lint",
-      "runAtStart": false
-    },
-    "comp": {
-      "name": "comp",
-      "command": "pnpm comp",
-      "runAtStart": false
-    },
-    "test": {
-      "name": "test",
-      "command": "pnpm test",
-      "runAtStart": false
-    },
-    "test:ci": {
-      "name": "test:ci",
-      "command": "pnpm test:ci",
-      "runAtStart": false
     }
   }
 }

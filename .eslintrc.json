@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/eslintrc.json",
   "root": true,
   "env": {
     "node": true,
@@ -130,7 +131,8 @@
       "error",
       {
         "code": 100,
-        "ignoreTemplateLiterals": true
+        "ignoreTemplateLiterals": true,
+        "ignoreStrings": true
       }
     ],
     "newline-per-chained-call": "error",

@@ -2,7 +2,7 @@
  * @file Provides a CLI to create a new component
  */
 
-import fs from 'node:fs/promises'
+import fs from 'node:fs/promises';
 import { print } from './print.mjs';
 import json from '../package.json' assert { type: 'json' };
 import { createSpinner } from 'nanospinner';
@@ -68,9 +68,9 @@ const main = async () => {
 
 	const index = `export * from './${kabob}';\nexport * from './types.d';\n`;
 
-	const styles = `.root {\n	contain: strict;\n}\n`;
+	const styles = '.root {\n	contain: strict;\n}\n';
 
-	const test = `import { render, screen } from '@testing-library/react';\nimport { axe } from '@testing-library/jest-axe';\nimport { ${arg} } from '.';\n\n\ndescribe('${arg}', () => {\n	test('renders its content', async () => {\n		render(<${arg} />);\n\n		const intro = await screen.findByText(/content/i);\n\n		/**\n		 * @note Placeholder assertion:\n		 * This is redundant as 'findByText' will error if not present.\n		 * Remove when writing your own tests.\n		 */\n		expect(intro).toBeInTheDocument();\n	});\n\n	test('is accessible', async () => {\n		const { container } = render(<${arg} />);\n\n		const element = await axe(container);\n\n		expect(element).toHaveNoViolations();\n	});\n});\n`;
+	const test = `import { render, screen } from '@testing-library/react';\nimport { axe } from 'jest-axe';\nimport { ${arg} } from '.';\n\n\ndescribe('${arg}', () => {\n	test('renders its content', async () => {\n		render(<${arg} />);\n\n		const intro = await screen.findByText(/content/i);\n\n		/**\n		 * @note Placeholder assertion:\n		 * This is redundant as 'findByText' will error if not present.\n		 * Remove when writing your own tests.\n		 */\n		expect(intro).toBeInTheDocument();\n	});\n\n	test('is accessible', async () => {\n		const { container } = render(<${arg} />);\n\n		const element = await axe(container);\n\n		expect(element).toHaveNoViolations();\n	});\n});\n`;
 
 	spinner.start({
 		color: 'yellow',

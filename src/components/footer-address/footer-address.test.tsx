@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
-import { AmountsTable } from '.';
+import { FooterAddress } from '.';
 
 
-describe('AmountsTable', () => {
+describe('FooterAddress', () => {
 	test('renders its content', async () => {
-		render(<AmountsTable />);
+		render(<FooterAddress />);
 
 		const intro = await screen.findByText(/content/i);
 
@@ -18,7 +18,7 @@ describe('AmountsTable', () => {
 	});
 
 	test('is accessible', async () => {
-		const { container } = render(<AmountsTable />);
+		const { container } = render(<FooterAddress />);
 
 		const element = await axe(container);
 

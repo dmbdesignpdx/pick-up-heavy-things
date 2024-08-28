@@ -8,35 +8,29 @@ import { AppFooter } from '#components:app-footer';
 import { STORAGE_NAME } from '#constants:names';
 import style from '../styles/pages/page.module.css';
 
+export type State = 'snatch' | 'ratio';
+
 
 export default function Home() {
 	const [snatch, setSnatch] = useState('0');
 	const [ratio, setRatio] = useState('80');
 
-	function updateSnatch(e: ChangeEvent) {
-		const { value } = e.target;
+	function updateState(state: State) {
+		return function (e: ChangeEvent) {
+			const { value } = e.target;
+			const isRatio = state === 'ratio';
 
-		setSnatch(value);
+			const hold = JSON.stringify({
+				snatch: !isRatio ? value: snatch,
+				ratio: isRatio ? value : ratio,
+			});
 
-		const hold = JSON.stringify({
-			snatch: value,
-			ratio,
-		});
+			window.localStorage.setItem(STORAGE_NAME, hold);
 
-		window.localStorage.setItem(STORAGE_NAME, hold);
-	}
+			if (isRatio) setRatio(value);
 
-	function updateRatio(e: ChangeEvent) {
-		const { value } = e.target;
-
-		setRatio(value);
-
-		const hold = JSON.stringify({
-			snatch,
-			ratio: value,
-		});
-
-		window.localStorage.setItem(STORAGE_NAME, hold);
+			setSnatch(value);
+		};
 	}
 
 	useEffect(() => {
@@ -56,16 +50,18 @@ export default function Home() {
 		<>
 			<AppHeader heading="Pick Up Heavy Things"/>
 			<main className={style.root}>
-				<NumberInput
-					label="Snatch PR"
-					value={snatch}
-					onChange={updateSnatch}
-				/>
-				<NumberInput
-					label="Snatch Percentage"
-					value={ratio}
-					onChange={updateRatio}
-				/>
+				<form className={style.tester}>
+					<NumberInput
+						label="Snatch PR"
+						value={snatch}
+						onChange={updateState('snatch')}
+					/>
+					<NumberInput
+						label="Snatch %"
+						value={ratio}
+						onChange={updateState('ratio')}
+					/>
+				</form>
 				<AmountsTable
 					title="Snatch"
 					states={[snatch, ratio]}

@@ -2,19 +2,19 @@
     --color-blue: #00f;
     --color-green: #0f0;
     --color-red: #f00;
-    --color-yellow: #ff0;
+    --color-yellow: #fff01a;
     --color-cyan: #0ff;
     --color-magenta: #f0f;
+    --color-primary: var(--color-yellow);
     --color-background: #ccc;
-		--color-background-2: #111;
+	--color-background-2: #111;
+    --color-background-3: var(--color-yellow);
+    --color-on-background-3: black;
     --color-surface: #fff;
     --color-on-surface: #222;
-		--color-on-background-2: #fff;
+	--color-on-background-2: #fff;
 
-    --font-body: 'Your Family';
-    --font-heading: sans-serif;
-    --font-quote: serif;
-    --font-code: monospace;
+    --font-body: 'Noto Sans';
 
     --font-level-1: 7rem;
     --font-level-2: 1rem;
@@ -105,14 +105,17 @@ body {
     -webkit-overflow-scrolling: touch;
     -webkit-tap-highlight-color: transparent;
     -ms-overflow-style: -ms-autohiding-scrollbar;
+    color: var(--color-on-surface);
+    background-color: var(--color-background);
+    overflow-wrap: break-word;
     font-family: var(--font-body), sans-serif;
+    font-size: var(--font-level-2);
+    font-optical-sizing: auto;
+    font-variation-settings: "wdth" 100;
     font-weight: var(--font-weight-regular);
     font-size: var(--font-level-body);
     letter-spacing: var(--letter-spacing-body);
     line-height: var(--line-height-body);
-    color: var(--color-on-surface);
-    background-color: var(--color-background);
-    overflow-wrap: break-word;
 }
 
 input,

@@ -1,0 +1,5 @@
+.root {
+	contain: strict;
+	display: flex;
+	flex-flow: column wrap;
+}
